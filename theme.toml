@@ -1,0 +1,12 @@
+name = "phosphor"
+license = "MIT"
+licenselink = "https://github.com/swap357/phosphor/blob/main/LICENSE"
+description = "A lean retro CRT-inspired Hugo theme with phosphor green aesthetics"
+homepage = "https://github.com/swap357/phosphor"
+tags = ["retro", "minimal", "monospace", "dark", "blog"]
+features = ["syntax-highlighting", "responsive"]
+min_version = "0.112.0"
+
+[author]
+  name = "Swapnil Patel"
+  homepage = "https://autoscaler.sh"

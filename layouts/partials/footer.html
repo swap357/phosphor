@@ -1,0 +1,6 @@
+<footer class="site-footer">
+  <span>{{ .Site.Params.copyright | default (printf "© %d %s" now.Year .Site.Title) }}</span>
+  {{ with .Site.Params.github }} · <a href="https://github.com/{{ . }}" target="_blank" rel="noopener">github</a>{{ end }}
+  {{ with .Site.Params.twitter }} · <a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener">twitter</a>{{ end }}
+  {{ with .Site.Params.linkedin }} · <a href="https://linkedin.com/in/{{ . }}" target="_blank" rel="noopener">linkedin</a>{{ end }}
+</footer>

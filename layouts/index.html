@@ -1,0 +1,21 @@
+{{ define "main" }}
+<section>
+  {{ with .Site.GetPage "/homepage" }}
+    {{ .Content }}
+  {{ end }}
+</section>
+
+<section>
+  <h2>Recent Posts</h2>
+  <ul class="posts-list">
+    {{ $posts := where .Site.RegularPages "Section" "in" .Site.Params.mainSections }}
+    {{ range first 10 $posts }}
+    <li class="post-item">
+      <h3 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      {{ partial "post-meta.html" . }}
+      {{ with .Summary }}<p>{{ . | plainify | truncate 150 }}</p>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

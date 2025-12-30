@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article>
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    {{ if in .Site.Params.mainSections .Section }}
+    {{ partial "post-meta.html" . }}
+    {{ end }}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{ if and .Site.Params.posts_navigation (in .Site.Params.mainSections .Section) }}
+  <nav class="post-nav">
+    {{ with .PrevInSection }}
+    <a href="{{ .Permalink }}">&larr; {{ .Title | truncate 40 }}</a>
+    {{ else }}
+    <span></span>
+    {{ end }}
+    {{ with .NextInSection }}
+    <a href="{{ .Permalink }}">{{ .Title | truncate 40 }} &rarr;</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</article>
+{{ end }}
