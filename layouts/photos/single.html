@@ -1,0 +1,28 @@
+{{ define "main" }}
+<article>
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.location }}{{ if ne . $.Title }}<p class="post-meta">{{ . }}</p>{{ end }}{{ end }}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{ with .Params.images }}
+  <div class="photo-grid">
+    {{ range . }}
+    <figure class="photo-item">
+      <a href="{{ . }}" target="_blank" rel="noopener">
+        <img src="{{ . }}" alt="" loading="lazy">
+      </a>
+    </figure>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <nav class="post-nav">
+    <a href="{{ "/photos/" | relURL }}">&larr; all albums</a>
+  </nav>
+</article>
+{{ end }}

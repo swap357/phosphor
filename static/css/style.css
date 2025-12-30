@@ -271,6 +271,95 @@ th {
   max-width: 45%;
 }
 
+/* Gallery - album grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.gallery-item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--surface);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  transition: opacity 0.2s;
+}
+
+.gallery-item:hover img {
+  opacity: 0.8;
+}
+
+.gallery-title {
+  display: block;
+  padding: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Photo viewer - expand beyond container */
+.photo-viewer {
+  width: 100vw;
+  max-width: 1200px;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 0 1rem;
+}
+
+@media (min-width: 1200px) {
+  .photo-viewer {
+    margin-left: calc(-600px + 340px);
+    margin-right: calc(-600px + 340px);
+  }
+}
+
+/* Flickr embed responsive */
+.post-content a[data-flickr-embed] {
+  display: block;
+  max-width: 100%;
+}
+
+.post-content a[data-flickr-embed] img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Gallery - photo grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.photo-item {
+  margin: 0;
+}
+
+.photo-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.photo-item img:hover {
+  opacity: 0.9;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   html {
@@ -283,5 +372,13 @@ th {
 
   .site-nav a {
     margin-right: 1rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
   }
 }
